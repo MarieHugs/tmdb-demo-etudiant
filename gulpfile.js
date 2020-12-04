@@ -73,7 +73,7 @@ const optimiser_js = function() {
     return gulp.src(folder.src + 'js/**/*')         //Récupère tous les fichiers du dossier et des sous-dossiers.
         .pipe(sourcemaps.init())                    //Permets de retrouver la ligne problématique dans le fichier original.
         //TODO enlever le commentaire de stripdebug avant de mettre en ligne
-        // .pipe(stripdebug())                         //Supprime tous les commentaires et les lignes de « débogage »
+        //.pipe(stripdebug())                         //Supprime tous les commentaires et les lignes de « débogage »
         .pipe(sourcemaps.write())                   //Permets de retrouver la ligne problématique dans le fichier original.
         .pipe(gulp.dest(out + 'js/'));              //Copie tous les fichiers optimisés vers la destination.
 };
@@ -126,7 +126,6 @@ const serveur = function () {
 
 
 gulp.task('optimiser_images', optimiser_images);
-// gulp.task('optimiser_html', optimiser_html);
 gulp.task('optimiser_html', gulp.series('optimiser_images', optimiser_html));
 gulp.task('optimiser_css', gulp.series('optimiser_images', optimiser_css));
 gulp.task('optimiser_js', optimiser_js);
